@@ -1,0 +1,106 @@
+.menu-eventos {
+  padding: 100px 70px;
+  background: #1b100c;
+  color: white;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.titulo span {
+  color: orange;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: bold;
+}
+
+.titulo h2 {
+  font-size: 3rem;
+  margin: 15px 0;
+}
+
+.titulo p {
+  color: #ddd;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+}
+
+.card {
+  width: 350px;
+
+  background: #2a1913;
+  border-radius: 20px;
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 165, 0, 0.25);
+
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: orange;
+}
+
+.card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.contenido {
+  padding: 30px;
+}
+
+.contenido h3 {
+  color: orange;
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+.contenido ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contenido li {
+  margin-bottom: 14px;
+  color: #ddd;
+  line-height: 1.6;
+
+  padding-left: 12px;
+  border-left: 2px solid orange;
+
+  transition: 0.3s;
+}
+
+@media (max-width: 600px) {
+
+  .menu-eventos {
+    padding: 70px 25px;
+  }
+
+  .titulo h2 {
+    font-size: 2.2rem;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+}
+.contenido li:hover {
+  color: white;
+  transform: translateX(5px);
+
+}
+.contenido {
+  padding: 35px;
+}

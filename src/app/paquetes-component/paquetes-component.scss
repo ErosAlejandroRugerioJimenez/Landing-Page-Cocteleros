@@ -1,0 +1,129 @@
+.paquetes {
+  padding: 100px 70px;
+  background: #120907;
+  color: white;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.titulo span {
+  color: orange;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.titulo h2 {
+  font-size: 3rem;
+  margin: 20px 0;
+}
+
+.titulo p {
+  color: #ccc;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+}
+
+.card {
+  position: relative;
+
+  width: 350px;
+
+  background: #22110d;
+
+  border-radius: 25px;
+
+  padding: 40px 30px;
+
+  border: 1px solid rgba(255, 166, 0, 0.15);
+
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: orange;
+}
+
+.card h3 {
+  color: orange;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.subtitulo {
+  display: block;
+  color: #bbb;
+  margin-bottom: 25px;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card li {
+  margin-bottom: 14px;
+  color: #ddd;
+
+  border-left: 2px solid orange;
+  padding-left: 12px;
+}
+
+.ideal {
+  margin-top: 30px;
+  color: orange;
+  font-weight: bold;
+}
+
+.ideal p {
+  margin-top: 10px;
+  color: #ccc;
+  font-weight: normal;
+  line-height: 1.6;
+}
+
+.destacado {
+  border: 1px solid orange;
+  transform: scale(1.03);
+}
+
+.badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+
+  background: orange;
+  color: white;
+
+  padding: 8px 15px;
+
+  border-radius: 20px;
+
+  font-size: .9rem;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+
+  .paquetes {
+    padding: 70px 25px;
+  }
+
+  .titulo h2 {
+    font-size: 2.2rem;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+}

@@ -1,0 +1,47 @@
+.contacto {
+  padding: 120px 30px;
+ background: linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)),
+    url('/img/cont.jpg');
+background-size: cover;
+background-position: center;
+  color: white;
+  text-align: center;
+}
+
+.contenido {
+  max-width: 700px;
+  margin: auto;
+}
+
+.contenido span {
+  color: orange;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: bold;
+}
+
+.contenido h2 {
+  font-size: 3rem;
+  margin: 20px 0;
+}
+
+.contenido p {
+  color: #ddd;
+  line-height: 1.7;
+  margin-bottom: 35px;
+}
+
+.btn-whatsapp {
+  display: inline-block;
+  padding: 16px 35px;
+  background: orange;
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-whatsapp:hover {
+  transform: scale(1.05);
+}

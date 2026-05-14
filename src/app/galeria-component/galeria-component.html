@@ -1,0 +1,16 @@
+<section class="galeria" data-aos="fade-up">
+  <div class="titulo">
+    <span>Galería</span>
+    <h2>Galería de cocteles</h2>
+  </div>
+
+  <div class="grid">
+    <div class="item" *ngFor="let imagen of imagenes">
+      <img [src]="imagen.src" [alt]="imagen.nombre">
+
+      <div class="capa">
+        <h3>{{ imagen.nombre }}</h3>
+      </div>
+    </div>
+  </div>
+</section>
