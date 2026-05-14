@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Spa
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.7.
@@ -57,3 +58,7 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+=======
+# Landing-Page-Cocteleros
+Landing page desarrollada con Angular para Cocteleros, un emprendimiento de coctelería para eventos sociales y privados. Incluye diseño responsive, animaciones modernas, galería interactiva, paquetes de servicio, recomendaciones de bebidas según el tipo de evento, integración con WhatsApp y una experiencia visual enfocada en branding premium.
+>>>>>>> 08fbfccd8143f5126d9efed1b0db355be5420547
