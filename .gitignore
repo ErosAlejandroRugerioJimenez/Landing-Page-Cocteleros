@@ -42,3 +42,15 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Salida temporal de prerenderizado
+/.prerender
+
+
+# Archivos locales y respaldo fuera del despliegue React
+/.vercel
+/legacy-angular
+/.angular
+.env
+.env.*
+!.env.example

@@ -1,0 +1,9 @@
+legacy-angular/
+.angular/
+.prerender/
+node_modules/
+dist/
+tmp/
+docs/
+.vscode/
+social-image.py

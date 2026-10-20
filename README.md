@@ -1,64 +1,18 @@
-<<<<<<< HEAD
-# Spa
+# Cocteleros
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.7.
+Landing migrada de Angular a React + TypeScript + Vite + Tailwind CSS.
 
-## Development server
+    npm install
+    npm run dev
 
-To start a local development server, run:
+`npm run build` verifica TypeScript y genera `dist`. `npm run preview` sirve esa compilación localmente.
 
-```bash
-ng serve
-```
+Consulta `docs/MIGRACION.md` para las equivalencias, decisiones y cambios de despliegue.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## SEO y compartir enlaces
+El build prerenderiza la landing y ejecuta las comprobaciones SEO. Consulta docs/SEO.md para el dominio, los metadatos, la imagen social y los pasos de publicación. npm run check:seo repite la verificación de dist.
 
-## Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Vercel
+Configuración de producción en vercel.json. Pasos y comprobaciones en docs/VERCEL.md. El respaldo de Angular está fuera de este proyecto.
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-=======
-# Landing-Page-Cocteleros
-Landing page desarrollada con Angular para Cocteleros, un emprendimiento de coctelería para eventos sociales y privados. Incluye diseño responsive, animaciones modernas, galería interactiva, paquetes de servicio, recomendaciones de bebidas según el tipo de evento, integración con WhatsApp y una experiencia visual enfocada en branding premium.
->>>>>>> 08fbfccd8143f5126d9efed1b0db355be5420547

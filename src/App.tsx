@@ -1,0 +1,62 @@
+import { useLayoutEffect } from 'react';
+import Navbar from './components/Navbar';
+import SectionHeading from './components/SectionHeading';
+import { events, packages, whatsapp } from './data';
+import QuoteForm from './components/QuoteForm';
+import Gallery from './components/Gallery';
+import { Planning, FAQ } from './components/Planning';
+import Testimonials from './components/Testimonials';
+
+function Hero() {
+  return <section id="inicio" className="relative isolate flex min-h-190 items-center overflow-hidden pb-24 pt-40 lg:min-h-screen">
+    <picture className="absolute inset-0 -z-20 h-full w-full"><source media="(max-width: 639px)" srcSet="/img/optimized/hero-mobile.webp" /><img src="/img/optimized/hero-desktop.webp" alt="" width={1920} height={1080} fetchPriority="high" className="h-full w-full object-cover" /></picture>
+    <div className="absolute inset-0 -z-10 bg-linear-to-r from-pine/95 via-pine/65 to-pine/20" /><div className="absolute inset-0 -z-10 bg-linear-to-t from-pine via-transparent to-transparent" />
+    <div className="page-width w-full"><div className="max-w-3xl"><p className="eyebrow">Barra móvil · Tlaxcala y alrededores</p><h1 className="mt-6 font-display text-[clamp(3.3rem,7.5vw,7rem)] leading-[1.04] tracking-tight">Coctelería para<br />eventos <em className="font-medium text-gold">inolvidables.</em></h1><p className="mt-8 max-w-lg text-lg leading-8 text-cream/75">Barras móviles, cocteles premium y experiencias únicas para bodas, XV años y fiestas.</p><div className="mt-10 flex flex-wrap gap-4"><a href="/" data-section="contacto" className="button-primary">Cotizar mi evento <span aria-hidden="true">↗</span></a><a href="/" data-section="menu" className="button-outline">Descubrir el menú <span aria-hidden="true">↓</span></a></div></div>
+    <div className="mt-20 flex flex-wrap gap-x-10 gap-y-4 border-t border-cream/20 pt-6 text-xs tracking-[.16em] text-cream/65 uppercase"><span>Cocteles premium</span><span>Servicio personalizado</span><span>Momentos especiales</span></div></div>
+  </section>;
+}
+function About() {
+  return <section id="nosotros" className="section-space bg-cream text-pine"><div className="page-width grid items-center gap-14 lg:grid-cols-2 lg:gap-24"><div className="relative"><img src="/img/optimized/nosotros.webp" alt="Preparación de cocteles en una barra" loading="lazy" className="aspect-4/5 max-h-150 w-full rounded-t-[10rem] object-cover" /><div className="absolute -bottom-6 right-4 max-w-64 border border-gold/40 bg-pine p-7 text-cream sm:-right-6"><span className="text-gold text-3xl" aria-hidden="true">✳</span><p className="mt-3 font-display text-2xl italic">Experiencias que se sirven en vaso.</p></div></div><div className="pt-6 lg:pt-0"><SectionHeading eyebrow="La esencia de Cocteleros" title="Cocteles que hacen especial tu evento" /><p className="leading-8 text-pine/70">En Cocteleros llevamos barra móvil y preparación de bebidas para bodas, XV años, cumpleaños, reuniones y eventos privados.</p><p className="mt-5 leading-8 text-pine/70">Nos adaptamos a tu evento: tú eliges los cocteles, el estilo de barra y el tipo de servicio que necesitas.</p><a href="/" data-section="paquetes" className="mt-9 inline-flex items-center gap-8 border-b border-pine/30 pb-3 text-sm font-semibold">Encuentra tu paquete <span aria-hidden="true">↗</span></a></div></div></section>;
+}
+function Events() {
+  return <section id="menu" className="section-space"><div className="page-width"><SectionHeading eyebrow="Nuestros eventos" title="Cada ocasión merece su propio brindis" description="Cocteles ideales para cada ocasión. Recomendaciones especiales según el tipo de evento." /><div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">{events.map((event, i) => <article key={event.title} className="group overflow-hidden rounded-t-[5rem] border border-cream/10 bg-white/3"><div className="relative overflow-hidden"><img src={`/img/${event.image}`} srcSet={`/img/${event.image.replace('-800', '-480')} 480w, /img/${event.image} 800w`} sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" width={800} height={1000} decoding="async" alt={event.title} loading="lazy" className="aspect-4/5 w-full object-cover transition-transform duration-700 group-hover:scale-105" /><span className="absolute bottom-4 left-5 rounded-full bg-pine/80 px-3 py-1 text-xs text-gold">0{i + 1}</span></div><div className="p-6"><p className="text-xs text-gold">{event.subtitle}</p><h3 className="mt-2 font-display text-3xl">{event.title}</h3><ul className="mt-5 space-y-2 text-sm text-muted">{event.drinks.map(drink => <li key={drink}>{drink}</li>)}</ul></div></article>)}</div></div></section>;
+}
+function Packages() {
+  return <section id="paquetes" className="section-space border-y border-cream/10 bg-sage"><div className="page-width"><SectionHeading center eyebrow="Paquetes a tu medida" title="Tú pones la ocasión. Nosotros, los cocteles." description="Elige el paquete ideal para tu evento. Opciones pensadas para diferentes tipos de celebraciones." /><div className="grid items-stretch gap-6 lg:grid-cols-3">{packages.map(pack => <article key={pack.name} className={`relative flex flex-col rounded-2xl border p-7 sm:p-9 ${pack.featured ? 'border-gold bg-cream text-pine' : 'border-cream/15 bg-pine/35'}`}>
+    {pack.featured && <span className="absolute -top-3 left-7 rounded-full bg-gold px-4 py-1 text-[10px] font-bold tracking-widest text-pine uppercase">Más solicitado</span>}<h3 className="font-display text-3xl">{pack.name}</h3><p className={`mt-2 text-sm ${pack.featured ? 'text-pine/60' : 'text-muted'}`}>{pack.subtitle}</p><div className="my-7 border-y border-current/15 py-6"><p className="text-xs tracking-widest uppercase">Hasta</p><p className="mt-1"><span className="font-display text-6xl">{pack.people}</span> <span className="text-sm opacity-65">personas</span></p></div><ul className="mb-8 space-y-3 text-sm">{pack.features.map(feature => <li key={feature} className="flex gap-3"><span className={pack.featured ? 'text-pine' : 'text-gold'} aria-hidden="true">✓</span>{feature}</li>)}</ul><div className="mt-auto"><p className="text-xs leading-6 opacity-65">Perfecto para:<br />{pack.ideal}</p><a className={`mt-6 flex items-center justify-between rounded-full border px-6 py-3 text-sm font-semibold transition-colors ${pack.featured ? 'border-pine bg-pine text-cream hover:bg-pine/85' : 'border-gold/40 text-gold hover:bg-gold/10'}`} href={whatsapp(`Hola, quiero cotizar el paquete ${pack.name} de Cocteleros`)} target="_blank" rel="noopener noreferrer">Cotizar {pack.name} <span aria-hidden="true">↗</span></a></div></article>)}</div></div></section>;
+}
+function Location() {
+  return <section id="ubicacion" className="section-space"><div className="page-width grid items-center gap-12 lg:grid-cols-2"><div><SectionHeading eyebrow="Cerca de tu celebración" title="Servicio para eventos en Tlaxcala y alrededores" /><p className="leading-8 text-muted">Llevamos barras móviles y coctelería premium hasta el lugar de tu evento.</p><p className="mt-4 leading-8 text-muted">Bodas, XV años, fiestas privadas y eventos empresariales.</p><p className="mt-8 border-l-2 border-gold pl-5 text-sm text-gold">San Francisco Tetlanohcan, Tlaxcala</p></div><iframe title="Mapa de San Francisco Tetlanohcan, Tlaxcala" className="h-100 w-full rounded-2xl border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60263.15934691258!2d-98.24489923944208!3d19.262898026395874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfdd9a49f32211%3A0x65f6807d1d6347d4!2sSan%20Francisco%20Tetlanohcan%2C%20Tlax.!5e0!3m2!1ses-419!2smx!4v1778708481548!5m2!1ses-419!2smx" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" /></div></section>;
+}
+function Contact() {
+  return <section id="contacto" className="relative isolate py-20 sm:py-28"><picture className="absolute inset-0 -z-20 h-full w-full"><source media="(max-width: 639px)" srcSet="/img/optimized/contact-mobile.webp" /><img src="/img/optimized/contact-desktop.webp" alt="" width={1600} height={1100} loading="lazy" decoding="async" className="h-full w-full object-cover" /></picture><div className="absolute inset-0 -z-10 bg-pine/90" /><div className="page-width grid items-center gap-12 lg:grid-cols-[.9fr_1.1fr] lg:gap-16"><div><p className="eyebrow">Hagamos algo memorable</p><h2 className="mt-5 font-display text-5xl leading-tight sm:text-6xl">Tu próximo gran evento<br /><em className="text-gold">empieza con un hola.</em></h2><p className="mt-7 max-w-lg leading-8 text-cream/75">Cuéntanos qué estás planeando. Preparamos los datos de tu evento en un mensaje para que puedas solicitar disponibilidad y cotización por WhatsApp.</p><ul className="mt-8 space-y-4 border-y border-cream/15 py-6 text-sm text-cream/80"><li>↗ Servicio en Tlaxcala y alrededores</li><li>↗ Paquetes para hasta 50, 100 y 200 personas</li><li>↗ Opciones de cocteles y barras para tu evento</li></ul><p className="mt-7 text-sm text-muted">¿Prefieres platicarnos directamente?</p><a href={whatsapp()} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-5 border-b border-gold/50 pb-2 text-sm text-gold">Abrir WhatsApp ↗</a></div><QuoteForm /></div></section>;
+}
+function Footer() {
+  return <footer className="py-14"><div className="page-width"><div className="flex flex-col justify-between gap-8 border-b border-cream/15 pb-10 md:flex-row"><div><a href="/" data-section="inicio" className="font-display text-4xl">Cocteleros<span className="text-gold">.</span></a><p className="mt-4 max-w-sm text-sm leading-7 text-muted">Coctelería para bodas, XV años, cumpleaños y eventos privados.</p></div><div className="flex flex-wrap items-start gap-6 text-sm text-gold"><a href="https://instagram.com/alejandroo.xyz" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href={whatsapp()} target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a href="/" data-section="preguntas">Preguntas frecuentes ↓</a></div></div><div className="mt-7 flex flex-wrap justify-between gap-4 text-xs text-muted"><span>© {new Date().getFullYear()} Cocteleros. Todos los derechos reservados.</span><div className="flex flex-wrap gap-x-5 gap-y-3"><a href="/" data-section="inicio">Volver al inicio ↑</a></div></div><p className="mt-8 w-full text-center text-xs leading-6 text-muted">Desarrollado por <span className="font-semibold text-gold">Biglat Technologies</span></p></div></footer>;
+}
+export default function App() {
+  useLayoutEffect(() => {
+    const id = window.location.hash.slice(1);
+    if (id) {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'instant' });
+      window.history.replaceState(window.history.state, '', window.location.pathname + window.location.search);
+    }
+    const navigate = (event: MouseEvent) => {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const link = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>('a[data-section]') : null;
+      if (!link?.dataset.section) return;
+      const target = document.getElementById(link.dataset.section);
+      if (!target) return;
+      event.preventDefault();
+      // El foco sigue a la sección sin escribir fragmentos en la URL.
+      target.setAttribute('tabindex', '-1');
+      target.scrollIntoView({ block: 'start', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+      target.focus({ preventScroll: true });
+    };
+    document.addEventListener('click', navigate);
+    return () => document.removeEventListener('click', navigate);
+  }, []);
+  return <><a className="skip-link" href="/" data-section="contenido">Saltar al contenido</a><Navbar /><main id="contenido"><Hero /><About /><Events /><Packages /><Planning /><Gallery /><Testimonials /><FAQ /><Location /><Contact /></main><Footer /><a href={whatsapp()} target="_blank" rel="noopener noreferrer" aria-label="Cotizar por WhatsApp" className="fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full border-4 border-pine bg-[#25d366] shadow-xl transition-transform hover:scale-105"><img src="/img/whatsapp.jpg" alt="" className="h-10 w-10 rounded-full object-cover" /></a></>;
+}
+
+

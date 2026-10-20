@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --color-pine: #171b16;
+  --color-sage: #222b22;
+  --color-cream: #f5f0e7;
+  --color-gold: #dfb777;
+  --color-muted: #b5b9ac;
+  --font-sans: 'DM Sans', sans-serif;
+  --font-display: 'Playfair Display', serif;
+}
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 6.5rem; }
+  body { margin: 0; background: var(--color-pine); color: var(--color-cream); font-family: var(--font-sans); }
+  ::selection { background: var(--color-gold); color: var(--color-pine); }
+  a, button { -webkit-tap-highlight-color: transparent; }
+  button { cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--color-gold); outline-offset: 5px; }
+}
+@layer components {
+  .page-width { @apply mx-auto max-w-7xl px-6 sm:px-10 lg:px-14; }
+  .section-space { @apply py-20 sm:py-28; }
+  .eyebrow { @apply text-xs font-semibold uppercase tracking-[.22em] text-gold; }
+  .section-title { @apply mt-4 font-display text-4xl leading-tight tracking-tight sm:text-5xl; }
+  .button-primary { @apply inline-flex items-center justify-center gap-8 rounded-full bg-gold px-7 py-4 text-sm font-semibold text-pine transition-colors hover:bg-cream; }
+  .button-outline { @apply inline-flex items-center justify-center gap-8 rounded-full border border-cream/35 px-7 py-4 text-sm text-cream transition-colors hover:bg-cream/10; }
+  .skip-link { @apply fixed -top-20 left-4 z-60 rounded bg-cream p-3 text-pine focus:top-4; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+
+/* Mantener contraste en las secciones claras. */
+.bg-cream .eyebrow { color: #82602e; }
+
+@layer components {
+  .field-label { @apply flex min-w-0 flex-col gap-2 text-sm font-semibold; }
+  .form-field { @apply min-h-12 w-full min-w-0 rounded-xl border border-pine/25 bg-white/70 px-3 py-3 text-sm font-normal text-pine transition-colors placeholder:text-pine/50 focus:border-pine; }
+  .nav-link[aria-current="location"] { text-decoration: underline; text-underline-offset: 7px; text-decoration-color: var(--color-gold); }
+}
+summary::-webkit-details-marker { display: none; }
+input[type="date"] { color-scheme: light; }
+.gallery-dialog::backdrop { backdrop-filter: blur(8px); }
+@media (max-width: 380px) {
+  #inicio h1 { font-size: 2.9rem; }
+}
+
+.quote-form .field-label { font-size: .75rem; letter-spacing: .025em; color: rgb(23 27 22 / .75); }
+.quote-form .form-field { min-height: 4.25rem; border-radius: 1rem; border-color: rgb(23 27 22 / .15); padding-inline: 1rem; background: rgb(255 255 255 / .75); }
+.quote-form .form-field:focus { outline: none; border-color: #92703e; box-shadow: 0 0 0 3px #dfb77730; background: white; }
+.select-trigger:focus-visible { outline: 2px solid #92703e; outline-offset: 3px; }
+
+
+.event-calendar .rdp-root { --rdp-accent-color: #82602e; --rdp-accent-background-color: #f0e5d1; --rdp-day-height: 36px; --rdp-day-width: 36px; --rdp-day_button-height: 36px; --rdp-day_button-width: 36px; --rdp-selected-border: 0; --rdp-outside-opacity: .4; --rdp-disabled-opacity: .25; margin: 0; font-family: var(--font-sans); font-size: .8125rem; }
+.event-calendar .rdp-months, .event-calendar .rdp-month { width: 100%; max-width: none; }
+.event-calendar .rdp-month_grid { width: 100%; }
+.event-calendar .rdp-month_caption { height: 44px; font-family: var(--font-display); font-size: 1rem; text-transform: capitalize; }
+.event-calendar .rdp-nav { height: 44px; }
+.event-calendar .rdp-chevron { fill: #82602e; width: 18px; height: 18px; }
+.event-calendar .rdp-weekday { padding-block: .65rem; font-size: .65rem; font-weight: 600; color: #73766c; text-transform: uppercase; }
+.event-calendar .rdp-day_button { margin: auto; border-radius: 10px; transition: background .15s; }
+.event-calendar .rdp-day_button:hover:not(:disabled) { background: #e8ddc9; color: #171b16; }
+.event-calendar .rdp-selected .rdp-day_button { background: #171b16; color: #f5f0e7; font-weight: 600; }
+.event-calendar .rdp-today:not(.rdp-selected) .rdp-day_button { box-shadow: inset 0 0 0 1px #b39564; color: #82602e; }
+.event-calendar .rdp-day_button:focus-visible { outline: 2px solid #82602e; outline-offset: 1px; }
+
+
+/* Límites adaptables y controles que caben desde 320 px. */
+html, body { max-width: 100%; overflow-x: clip; }
+#root { min-width: 0; }
+img, iframe { max-width: 100%; }
+.page-width > *, .quote-form, .quote-form > * { min-width: 0; }
+h1, h2, h3, blockquote, .quote-form p { overflow-wrap: anywhere; }
+.event-calendar .rdp-root { --rdp-day-width: auto; --rdp-day_button-width: 100%; }
+.event-calendar .rdp-month_grid { table-layout: fixed; }
+.event-calendar .rdp-day { width: calc(100% / 7); }
+.event-calendar .rdp-day_button { width: 100%; max-width: 36px; }
+.event-calendar { max-width: calc(100vw - 2rem); }
+@media (max-width: 639px) {
+  .quote-form .form-field { font-size: 16px; }
+  .quote-form h3 { font-size: clamp(1.6rem, 6vw, 2rem); }
+  .quote-form [role="status"] > p { overflow-wrap: anywhere; }
+  .gallery-dialog .button-outline { gap: .5rem; padding-inline: 1rem; }
+}
+
+@media (max-width: 380px) {
+  header nav { column-gap: .5rem; }
+  header nav > a { gap: .5rem; }
+  header nav > a img { width: 2rem; height: 2rem; }
+  header nav > a > span { font-size: 1.25rem; }
+  header nav > button { padding-inline: .75rem; font-size: .75rem; }
+}
+
+.field-error { color: #8c2923; font-size: .75rem; font-weight: 500; letter-spacing: 0; line-height: 1.5; }
+.quote-form .form-field[aria-invalid="true"] { border-color: #a3332a; background: #fff6f4; }
+.quote-form .form-field[aria-invalid="true"]:focus { box-shadow: 0 0 0 3px #a3332a20; }
