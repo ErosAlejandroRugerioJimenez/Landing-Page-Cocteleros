@@ -22,3 +22,6 @@ Galería original: 1,214,791 bytes. Versiones WebP grandes: 273,984 bytes (77.4%
 
 ## Actualización de galería
 Se sustituyeron Mojito, Piña Colada, Clericot y Cantaritos por fotografías identificadas con esos nombres. Créditos y licencias públicos en /creditos-fotograficos.html. Tequila Sunrise se conservó porque la alternativa descargada tenía peor calidad. Pantera Rosa se conservó por no encontrar una alternativa reutilizable identificada con suficiente certeza.
+
+## Foto de bautizos actualizada
+Jonathan Borba / Unsplash: https://unsplash.com/photos/y9VGG4M_ZJw . Mesa de celebración con pastel blanco, paloma, cruces y figuras de ángeles. Recorte 4:5, tamaños 480 y 800 px, WebP. Licencia Unsplash: https://unsplash.com/license .
